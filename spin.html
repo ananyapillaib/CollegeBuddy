@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning Wheel</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ede8ee;
+            font-family: Arial, sans-serif;
+        }
+
+        .wheel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid #333;
+            position: absolute;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: conic-gradient(
+                #FF5733 0% 25%, 
+                #FFC300 25% 50%, 
+                #DAF7A6 50% 75%, 
+                #C70039 75% 100%
+            );
+            transform: rotate(0deg);
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .wheel-segment {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 150px;
+            color: white;
+        }
+
+        .pointer {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid #333;
+            z-index: 10;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="wheel-container">
+        <div class="pointer"></div>
+        <div class="wheel" id="wheel">
+            <div class="wheel-segment" style="transform: rotate(45deg);">OS</div>
+            <div class="wheel-segment" style="transform: rotate(135deg);">DBMS</div>
+            <div class="wheel-segment" style="transform: rotate(225deg);">COA</div>
+            <div class="wheel-segment" style="transform: rotate(315deg);">PSM</div>
+        </div>
+    </div>
+    <button id="spinButton">Spin</button>
+
+    <script>
+        const wheel = document.getElementById('wheel');
+        const spinButton = document.getElementById('spinButton');
+
+        spinButton.addEventListener('click', () => {
+            const spinDegrees = Math.floor(Math.random() * 5000) + 2000; // Random degrees between 2000-7000
+            wheel.style.transform = `rotate(${spinDegrees}deg)`;
+
+            // Optionally, determine the winning segment:
+            const normalizedDegrees = spinDegrees % 360;
+            let winningSegment;
+
+            if (normalizedDegrees >= 0 && normalizedDegrees < 90) {
+                winningSegment = 'OS';
+            } else if (normalizedDegrees >= 90 && normalizedDegrees < 180) {
+                winningSegment = 'DBMS';
+            } else if (normalizedDegrees >= 180 && normalizedDegrees < 270) {
+                winningSegment = 'COA';
+            } else {
+                winningSegment = 'PSM';
+            }
+
+            setTimeout(() => {
+                alert(`The wheel landed on ${winningSegment}!`);
+            }, 4000); // Match the CSS transition duration
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .link-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+        }
+        .link-item {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .link-item:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="link-container">
+        <h1>Link Hub</h1>
+        <div class="link-item" data-url="https://drive.google.com/file/d/1wuLD51jPGJ2WcCAFBNxLtBAHI9IiONru/view">module 1</div>
+        <div class="link-item" data-url="">module 2</div>
+        <div class="link-item" data-url="https://drive.google.com/file/d/1VP9GbchAvVwXIo7FFAV9ifiHvxhPdvAV/view">module 3</div>
+        <div class="link-item" data-url="https://drive.google.com/file/d/1u4a3MMVtW0FVWKW4XPYnkrjEq1WyZ0x0/view">module 4</div>
+        <div class="link-item" data-url="https://drive.google.com/file/d/1OUyMf9uTHbK5j6uz6KgSIWvCdMJeZwub/view">module 5</div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.link-item').forEach(link => {
+            link.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                window.open(url, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
