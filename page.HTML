@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Contents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .contents-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .section {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .section:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="contents-container">
+        <h1>Study Contents</h1>
+        <div class="section" id="revise-section">
+            <h2>Revise</h2>
+            <p>Review and practice your study materials</p>
+        </div>
+        <div class="section" id="materials-section">
+            <h2>Materials</h2>
+            <p>Access and organize your study resources</p>
+        </div>
+        <div class="section" id="timer-section">
+            <h2>Timer</h2>
+            <p>Manage study time with Pomodoro technique</p>
+        </div>
+        <div class="section" id="ask-section">
+            <h2>Ask</h2>
+            <p>Submit questions and clear your doubts</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('revise-section').addEventListener('click', () => {
+            window.location.href = 'revise.html';
+        });
+
+        document.getElementById('materials-section').addEventListener('click', () => {
+            window.location.href = 'materials.html';
+        });
+
+        document.getElementById('timer-section').addEventListener('click', () => {
+            window.location.href = 'timer.html';
+        });
+
+        document.getElementById('ask-section').addEventListener('click', () => {
+            window.location.href = 'ask.html';
+        });
+    </script>
+</body>
+</html>

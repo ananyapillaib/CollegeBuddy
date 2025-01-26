@@ -1,0 +1,155 @@
+/* styles.css */
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    
+}
+
+/* Paragraph styling */
+p {
+    font-weight: bold;
+    font-size: 30px;
+    color: #333;
+    margin: 10px 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
+    
+}
+
+/* Button styling */
+button {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button for "Nah, not in mood" */
+button:nth-of-type(1) {
+    background-color: #ff4b4b;
+    color: white;
+}
+
+button:nth-of-type(1):hover {
+    background-color: #e63939;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button for "Yayy!! Less gooo" */
+button:nth-of-type(2) {
+    background-color: #4caf50;
+    color: white;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #3d8f3e;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+/* styles.css */
+button:nth-of-type(3) {
+    background-color: hsl(78, 100%, 50%);
+    color: white;
+}
+
+button:nth-of-type(3):hover {
+    background-color: #91ff00;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* style.css */
+button:nth-of-type(4) {
+    background-color: blue;
+    color: white;
+}
+
+button:nth-of-type(4):hover {
+    background-color: rgb(25, 25, 152);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+/*  */
+button:nth-of-type(5) {
+    background-color: rgb(135, 3, 3);
+    color: white;
+}
+
+button:nth-of-type(5):hover {
+    background-color: rgb(102, 0, 0);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+/*  */
+button:nth-of-type(6) {
+    background-color: rgb(0, 217, 255);
+    color: white;
+}
+
+button:nth-of-type(6):hover {
+    background-color: rgb(0, 116, 158);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+/*  */
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; 
+}
+
+.container {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
+    justify-content: center; 
+}
+
+.subject-button {
+    background-color: #4CAF50; /* Green */
+    color: rgb(36, 60, 181);
+    padding: 15px 32px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px; 
+    cursor: pointer;
+}
+
+.random-button {
+    background-color: #007bff; /* Blue */
+    color: rgb(173, 17, 17);
+    padding: 15px 32px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px; 
+    cursor: pointer;
+}
+
+.subject-button:hover,
+.random-button:hover {
+    opacity: 0.8; /* Slight opacity change on hover */
+}
