@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .timer-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        #timer {
+            font-size: 48px;
+            color: #3498db;
+            margin: 20px 0;
+        }
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <h1>Pomodoro Timer</h1>
+        <div id="timer">25:00</div>
+        <div class="timer-controls">
+            <button id="start-timer">Start</button>
+            <button id="reset-timer">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let timer;
+        let minutes = 25;
+        let seconds = 0;
+        let isRunning = false;
+
+        const timerDisplay = document.getElementById('timer');
+        const startButton = document.getElementById('start-timer');
+        const resetButton = document.getElementById('reset-timer');
+
+        function updateTimer() {
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(timer);
+                    timerDisplay.textContent = "Time's up!";
+                    return;
+                }
+                minutes--;
+                seconds = 59;
+            } else {
+                seconds--;
+            }
+            timerDisplay.textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        startButton.addEventListener('click', function() {
+            if (!isRunning) {
+                timer = setInterval(updateTimer, 1000);
+                isRunning = true;
+                startButton.textContent = 'Pause';
+            } else {
+                clearInterval(timer);
+                isRunning = false;
+                startButton.textContent = 'Resume';
+            }
+        });
+
+        resetButton.addEventListener('click', function() {
+            clearInterval(timer);
+            minutes = 25;
+            seconds = 0;
+            timerDisplay.textContent = '25:00';
+            startButton.textContent = 'Start';
+            isRunning = false;
+        });
+    </script>
+</body>
+</html>
